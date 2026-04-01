@@ -1,0 +1,90 @@
+.about-story {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: clamp(2.5rem, 5vw, 5rem); align-items: center;
+}
+.about-story__img-wrap {
+  position: relative; border-radius: var(--radius-xl); overflow: hidden; aspect-ratio: 3/4;
+}
+.about-story__img { width: 100%; height: 100%; object-fit: cover; }
+.about-story__badge {
+  position: absolute; bottom: 2rem; right: 2rem;
+  background: var(--accent); color: #fff;
+  border-radius: var(--radius-lg); padding: 1.25rem 1.5rem; text-align: center;
+}
+.about-story__badge-year {
+  font-family: var(--font-display); font-size: 2.25rem; font-weight: 300; line-height: 1;
+}
+.about-story__badge-label { font-size: 0.75rem; opacity: 0.85; margin-top: 2px; }
+.about-story__h2 { font-size: clamp(1.75rem, 3.5vw, 3rem); margin-bottom: 1.25rem; }
+.about-story__body { color: var(--text-muted); line-height: 1.8; margin-bottom: 2rem; }
+
+.about-stats {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1px; background: var(--border);
+  border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden;
+}
+.about-stat { padding: 1.25rem; background: var(--surface); text-align: center; }
+.about-stat__value {
+  font-family: var(--font-display); font-size: 2rem; font-weight: 300;
+  color: var(--accent); line-height: 1;
+}
+.about-stat__label { font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; }
+
+/* VALUES */
+.about-values { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.08); }
+.about-value-card { padding: 2.5rem 2rem; background: rgba(255,255,255,0.03); }
+.about-value-num {
+  font-family: var(--font-display); font-size: 3.5rem; font-weight: 300;
+  color: var(--accent); opacity: 0.4; line-height: 1; margin-bottom: 1.25rem;
+}
+.about-value-title {
+  font-family: var(--font-display); font-size: 1.375rem; font-weight: 400;
+  color: var(--text-light); margin-bottom: 0.75rem;
+}
+.about-value-body { font-size: 0.9rem; color: rgba(255,255,255,0.55); line-height: 1.7; }
+
+/* TEAM */
+.about-team { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 900px; margin: 0 auto; }
+.team-card { text-align: center; }
+.team-card__img-wrap {
+  aspect-ratio: 3/4; border-radius: var(--radius-xl); overflow: hidden; margin-bottom: 1.25rem;
+}
+.team-card__img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--t-slow) var(--ease); }
+.team-card:hover .team-card__img { transform: scale(1.03); }
+.team-card__name { font-family: var(--font-display); font-size: 1.25rem; font-weight: 400; margin-bottom: 4px; }
+.team-card__role { font-size: 0.875rem; color: var(--text-muted); }
+
+@media (max-width: 900px) {
+  .about-story { grid-template-columns: 1fr; }
+  .about-story__img-wrap { aspect-ratio: 16/9; }
+  .about-values { grid-template-columns: 1fr; }
+  .about-team { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .about-team { grid-template-columns: 1fr; max-width: 340px; }
+  .about-stats { grid-template-columns: 1fr; }
+}
+
+/* ══ MOBILE FIX ══ */
+@media (max-width: 768px) {
+  .about-story { grid-template-columns: 1fr; }
+  .about-story__img-wrap { aspect-ratio: 16/9; border-radius: var(--radius-lg); }
+  .about-values { grid-template-columns: 1fr; }
+  .about-team { grid-template-columns: 1fr 1fr; }
+  .about-stats { grid-template-columns: 1fr 1fr; }
+  .page-hero { padding-top: calc(var(--nav-h) + 2.5rem); }
+}
+@media (max-width: 480px) {
+  .about-team { grid-template-columns: 1fr; max-width: 280px; margin: 0 auto; }
+}
+
+/* ══ FONT CONTEXT ══ */
+.about-stat__value   { font-family: var(--font-data); }
+.about-value-num     { font-family: var(--font-data); }
+.about-story__badge-year { font-family: var(--font-data); }
+
+/* ══ PREMIUM REFINEMENTS ══ */
+.about-value-card { transition: background var(--t-base), padding-left var(--t-base); }
+.about-value-card:hover { background: rgba(255,255,255,0.055); padding-left: 2.5rem; }
+.about-team { gap: 2.5rem; }
+.team-card__img-wrap { box-shadow: var(--shadow-lg); }

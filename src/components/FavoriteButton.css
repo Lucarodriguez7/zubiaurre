@@ -1,0 +1,25 @@
+.fav-btn {
+  position: relative;
+  width: 36px; height: 36px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(255,255,255,0.9); backdrop-filter: blur(4px);
+  color: var(--text-muted); border: none;
+  transition: all var(--t-base) cubic-bezier(0.34,1.56,0.64,1);
+  overflow: hidden;
+}
+.fav-btn svg { width: 16px; height: 16px; transition: transform var(--t-base) cubic-bezier(0.34,1.56,0.64,1); }
+.fav-btn:hover { transform: scale(1.12); color: #e11d48; background: #fff; }
+.fav-btn--active { color: #e11d48; background: #fff; }
+.fav-btn--active svg { transform: scale(1.15); }
+
+/* Ripple animation on activate */
+.fav-btn__ripple {
+  position: absolute; inset: 0; border-radius: 50%;
+  background: rgba(225,29,72,0.2);
+  animation: favRipple 0.5s ease-out forwards;
+  pointer-events: none;
+}
+@keyframes favRipple {
+  from { transform: scale(0.5); opacity: 1; }
+  to   { transform: scale(2.5); opacity: 0; }
+}

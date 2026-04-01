@@ -1,0 +1,55 @@
+.waf { position: fixed; bottom: 28px; right: 28px; z-index: 300; display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
+
+.waf__trigger {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: #25D366; color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 24px rgba(37,211,102,0.5);
+  transition: all var(--t-base) var(--ease); position: relative;
+}
+.waf__trigger:hover { transform: scale(1.08); box-shadow: 0 8px 32px rgba(37,211,102,0.6); }
+.waf--open .waf__trigger { background: var(--primary); box-shadow: var(--shadow-lg); }
+
+.waf__pulse {
+  position: absolute; top: 0; right: 0;
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--accent); border: 2px solid var(--bg);
+  animation: pulse 2s infinite;
+}
+
+.waf__panel {
+  background: var(--surface); border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl); overflow: hidden;
+  width: 300px; border: 1px solid var(--border);
+}
+.waf__header { background: #075E54; padding: 1rem 1.25rem; display: flex; align-items: center; gap: 12px; }
+.waf__avatar { width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; color: #fff; flex-shrink: 0; }
+.waf__brand { font-weight: 500; font-size: 0.9375rem; color: #fff; }
+.waf__status { font-size: 0.75rem; color: rgba(255,255,255,0.7); display: flex; align-items: center; gap: 5px; margin-top: 2px; }
+.waf__dot { width: 8px; height: 8px; border-radius: 50%; background: #4ade80; display: inline-block; }
+
+.waf__body { padding: 1rem 1.25rem; background: #ECE5DD; }
+.waf__message { font-size: 0.9rem; line-height: 1.5; background: #fff; padding: 0.75rem 1rem; border-radius: 0 12px 12px 12px; box-shadow: 0 1px 2px rgba(0,0,0,0.1); display: inline-block; color: #111; }
+
+.waf__actions { padding: 0.75rem; display: flex; gap: 8px; flex-direction: column; }
+.waf__action-btn {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 0.75rem; border-radius: var(--radius-md);
+  font-size: 0.875rem; font-weight: 500;
+  transition: all var(--t-fast) var(--ease);
+}
+.waf__action-btn--wa { background: #25D366; color: #fff; }
+.waf__action-btn--wa:hover { background: #22c55e; }
+.waf__action-btn--call { background: var(--surface-alt); color: var(--text); border: 1px solid var(--border); }
+.waf__action-btn--call:hover { border-color: var(--accent); color: var(--accent); }
+
+@media (max-width: 480px) {
+  .waf { bottom: 20px; right: 20px; }
+  .waf__panel { width: calc(100vw - 40px); }
+}
+
+/* ══ MOBILE FIX ══ */
+@media (max-width: 480px) {
+  .waf { bottom: 16px; right: 16px; }
+  .waf__panel { width: calc(100vw - 32px); max-width: 340px; }
+}
